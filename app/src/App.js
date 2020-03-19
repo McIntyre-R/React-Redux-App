@@ -1,26 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Search from './components/Search'
+import Results from './components/results/Results'
+import { connect } from 'react-redux'
+import Idle from './components/idle'
+import Character from './components/Character/Character'
 
-function App() {
+
+
+
+function App(props){
+  // console.log(props.searching)
+  let display = <Idle />
+  if (props.loading) {
+    display = <img src='https://steamuserimages-a.akamaihd.net/ugc/436109173208068121/922AF23ED38FBCCA770590ECC14BF42E555B3AA1/' />
+  } else if (props.searching) {
+    display = <Results />
+  } else if (props.character) {
+    display = <Character />
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>
+        <Search />
+      </div>
+      
+      <div>
+          {display}
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+const mapStateToProps = state => {
+  return{
+    ...state
+  }
+}
+
+export default connect(mapStateToProps, {})(App);
+
+// https://xivapi.com/character/search?name=rain+masu&server=midgardsormr
+
+// https://xivapi.com/character/8604830?data=FR,FC,CJ,MIMO
