@@ -12,7 +12,7 @@ function Search(props) {
 
     const handleChanges = e => {
         setSearching({...searching, [e.target.name]: e.target.value})
-        // console.log(searching)
+        console.log('searching' + searching)
     }
     return(
         <div className='search'>  

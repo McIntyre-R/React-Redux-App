@@ -6,7 +6,7 @@ import Friend from './Friend'
 
 function FriendsList(props){
 
-// console.log(props)
+console.log('friendslist' + props)
     return(
         <div className='flex friendsList card inverse'>
             {props.friendList.map(friend => {

@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 
 function FreeCompany(props){
 
-// console.log(props)
+console.log('freecompany' + props)
     return(
         <div className='flex card inverse'>
             <div className='inverse'>

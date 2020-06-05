@@ -18,6 +18,7 @@ export const initialState = {
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
         case LOADING :
+            // console.log('loading' + action.payload)
             return {
                 ...state,
                 loading: true,
@@ -26,6 +27,7 @@ export const reducer = (state = initialState, action) => {
                 idle: false
             }
         case SEARCHING :
+            // console.log(action.payload)
             return {
                 ...state,
                 loading: false,
@@ -35,6 +37,7 @@ export const reducer = (state = initialState, action) => {
                 results: action.payload
             }
         case CHARACTER:
+            console.log(action.payload)
             return {
                 ...state,
                 loading: false,

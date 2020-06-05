@@ -7,7 +7,7 @@ import FriendsList from './FriendsList'
 
 
 function Character(props){
-console.log(props)
+console.log('character' + props)
 return(
     <div>
         <div className='flex'>
@@ -23,9 +23,12 @@ return(
         </div>
         <div className='flex wrap' >
         {props.characterInfo.ClassJobs.map( e => {
-            const classIcon = e.Name.split(/(.*)\/ /g)
-        return(<div className='classCard'> 
-            <img className='classImg' src={`https://xivapi.com/cj/1/${classIcon[2]}.png`} />
+        const classArray = e.Name.split(/(.*)\/ /g)
+        const classIcon = classArray[2]
+        const classFix = classIcon.replace(/ /g,'')
+        console.log(classFix)
+        return(<div className='classCard'>
+            <img className='classImg' src={`https://xivapi.com/cj/1/${classFix}.png`} />
             <p>Level: {e.Level}</p>
             </div>)
         })}

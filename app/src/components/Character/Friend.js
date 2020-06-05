@@ -5,7 +5,7 @@ import React from 'react'
 
 function Friend(props){
 
-console.log(props)
+console.log('friend' + props)
     return(
         <div className='flex friends inverse'>
             <img className='imgFriend' src={props.friend.Avatar} />
