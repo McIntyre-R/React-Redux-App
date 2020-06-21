@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import { searchSubmit} from '../actions/actions'
 import { connect } from 'react-redux'
+import FA from 'react-fontawesome'
+import theme from '../assets/chocobo.mp3'
 
 
 function Search(props) {
@@ -9,7 +11,9 @@ function Search(props) {
         lastName: '',
         server: ''
     });
+    
 
+    
     const handleChanges = e => {
         setSearching({...searching, [e.target.name]: e.target.value})
         console.log('searching' + searching)
@@ -23,6 +27,7 @@ function Search(props) {
                 <input className='border' type='text' name='server' value={searching.server} onChange={handleChanges} placeholder='Server' />
                 <button className='border' onClick={()=> props.searchSubmit(searching) }>Search</button>
             </div>
+            
         </div>
     )
 }
