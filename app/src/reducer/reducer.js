@@ -1,4 +1,4 @@
-import { SEARCHING, LOADING, CHARACTER } from '../actions/actions'
+import { SEARCHING, LOADING, CHARACTER , IDLE} from '../actions/actions'
 
 
 
@@ -18,7 +18,6 @@ export const initialState = {
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
         case LOADING :
-            // console.log('loading' + action.payload)
             return {
                 ...state,
                 loading: true,
@@ -27,7 +26,6 @@ export const reducer = (state = initialState, action) => {
                 idle: false
             }
         case SEARCHING :
-            // console.log(action.payload)
             return {
                 ...state,
                 loading: false,
@@ -37,7 +35,6 @@ export const reducer = (state = initialState, action) => {
                 results: action.payload
             }
         case CHARACTER:
-            console.log(action.payload)
             return {
                 ...state,
                 loading: false,
@@ -47,6 +44,14 @@ export const reducer = (state = initialState, action) => {
                 characterInfo: action.payload.Character,
                 freecompanyInfo: action.payload.FreeCompany,
                 friendsList: action.payload.Friends
+            }
+        case IDLE :
+            return {
+                ...state,
+                loading: false,
+                searching: false,
+                character: false,
+                idle: true
             }
         default: 
             return state

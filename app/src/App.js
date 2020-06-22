@@ -6,7 +6,7 @@ import Idle from './components/idle'
 import Character from './components/Character/Character'
 import theme from './assets/chocobo.mp3'
 
-const audio = new Audio(theme)
+export const audio = new Audio(theme)
 
 
 
@@ -22,6 +22,10 @@ function App(props){
     audio.pause()
   } else if (props.character) {
     display = <Character />
+    audio.pause()
+  } else if (props.idle) {
+    display = <Idle />
+    audio.pause()
   }
   return (
     <div>
