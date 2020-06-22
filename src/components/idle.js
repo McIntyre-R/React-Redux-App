@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 
 
-// const audio = new Audio('../assets/chocobo.mp3')
+
 function Idle(){
 
     return(

@@ -4,10 +4,8 @@ import FreeCompany from './FreeCompany'
 import FriendsList from './FriendsList'
 
 
-
-
 function Character(props){
-console.log(props)
+    console.log(props)
 return(
     <div>
         <div className='flex'>
@@ -23,17 +21,21 @@ return(
         </div>
         <div className='flex wrap' >
         {props.characterInfo.ClassJobs.map( e => {
-            const classIcon = e.Name.split(/(.*)\/ /g)
-        return(<div className='classCard'> 
-            <img className='classImg' src={`https://xivapi.com/cj/1/${classIcon[2]}.png`} />
+        const classArray = e.Name.split(/(.*)\/ /g)
+        const classIcon = classArray[2]
+        const classFix = classIcon.replace(/ /g,'')
+        return(<div className='classCard'>
+            <img className='classImg' src={`https://xivapi.com/cj/1/${classFix}.png`} />
             <p>Level: {e.Level}</p>
             </div>)
         })}
         </div>
-        <div>
-            <h2>FreeCompany</h2>
-            <FreeCompany />
-        </div>
+            {props.freeCompany ? 
+            (<div>
+                <h2>FreeCompany</h2>
+                <FreeCompany />
+            </div>)
+            :null} 
         <div>{props.friends[0] ? (<h2>Friends</h2>) : null}
             <FriendsList />
         </div>
@@ -46,7 +48,8 @@ return(
 const mapStateToProps = state => {
     return{
         characterInfo: state.characterInfo,
-        friends: state.friendsList
+        friends: state.friendsList,
+        freeCompany: state.freecompanyInfo
     }
 }
 

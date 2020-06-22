@@ -3,6 +3,7 @@ import axios from 'axios'
 export const LOADING = 'LOADING'
 export const SEARCHING = 'SEARCHING'
 export const CHARACTER = 'CHARACTER'
+export const IDLE = 'IDLE'
 
 
 
@@ -19,6 +20,12 @@ export const getCharacter = info => dispatch => {
     .then(res => dispatch({ type: CHARACTER, payload: res.data}))
     .catch(err => console.log(err))
 }
+
+export const setIdle = info => dispatch => {
+    dispatch({type: IDLE})
+}
+
+
 
 
 

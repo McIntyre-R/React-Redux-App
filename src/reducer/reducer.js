@@ -1,4 +1,4 @@
-import { SEARCHING, LOADING, CHARACTER } from '../actions/actions'
+import { SEARCHING, LOADING, CHARACTER , IDLE} from '../actions/actions'
 
 
 
@@ -44,6 +44,14 @@ export const reducer = (state = initialState, action) => {
                 characterInfo: action.payload.Character,
                 freecompanyInfo: action.payload.FreeCompany,
                 friendsList: action.payload.Friends
+            }
+        case IDLE :
+            return {
+                ...state,
+                loading: false,
+                searching: false,
+                character: false,
+                idle: true
             }
         default: 
             return state
