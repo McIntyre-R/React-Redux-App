@@ -11,7 +11,7 @@ return(
         
         <img src={props.character.Avatar} />
         
-        <div>
+        <div className='character-block'>
             <h1>{props.character.Name}</h1>
             <h4>{props.character.Server}</h4>
         </div>

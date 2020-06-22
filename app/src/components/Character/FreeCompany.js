@@ -17,7 +17,6 @@ console.log('freecompany' + props)
                 <p className='inverse'>Slogan: {props.freeCompany.Slogan}</p>
                 <p className='inverse'>Recruitment: {props.freeCompany.Recruitment}</p>
             </div>
-            
         </div>
     )
 }
